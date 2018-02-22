@@ -4,6 +4,7 @@
 
 const parseUrl = require('./parse-url.js');
 const parseJSON = require('./parse-json.js');
+const response = require('./response.js');
 
 const Router = module.exports = function() {
   this.routes = {
@@ -42,22 +43,12 @@ Router.prototype.route = function() {
           this.routes[req.method][req.url.pathname](req, res);
           return;
         }
+        response.sendText(res, 404, 'route not found');
         console.error('route not found');
-
-        res.writeHead(404, {
-          'Content-Type': 'text/plain',
-        });
-        res.write('route not found');
-        res.end();
       })
       .catch( err => {
+        response.sendText(res, 400, 'bad request');
         console.error(err);
-
-        res.writeHead(400, {
-          'Content-Type': 'text/plain',
-        });
-        res.write('bad request');
-        res.end();
       });
   };
 };
