@@ -1,7 +1,7 @@
 {
   "name": "lab-katy",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a simple, single resource API built for our 401 Full-stack Javascript cohort at CodeFellows.  This API is modeled off Express (though much simpler) to teach us about the middleware we're using to build our applications.",
   "main": "server.js",
   "directories": {
     "lib": "lib"
@@ -14,7 +14,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "eslint": "^4.18.1",
     "jest": "^22.4.0"
-  }
+  },
+  "devDependencies": {}
 }
