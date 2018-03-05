@@ -29,3 +29,4 @@ exports.fetchItem = function(schemaName, id) {
     })
     .catch( err => Promise.reject(err));
 };
+

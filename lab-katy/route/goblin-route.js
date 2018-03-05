@@ -31,17 +31,4 @@ module.exports = function(goblinRouter){
       response.sendText(res, 400, 'bad request');
     }
   });
-  
-  goblinRouter.delete('/api/gobin', function(req, res) {
-    if(req.url.query.id) {
-      storage.deleteItem('goblin', req.url.query.id)
-        .then( () => {
-          response.sendText(res, 204, 'no content in the body: goblin has been deleted');
-        })
-        .catch( err => {
-          console.error(err);
-          response.sendText(res, 400, 'bad request');
-        });
-    }
-  });
 };
